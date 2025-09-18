@@ -1,0 +1,36 @@
+[workspace]
+members = [
+    "crates/merkle",
+    "crates/sp1-program",
+    "crates/sp1-script",
+    "crates/sp1-util",
+]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.1"
+edition = "2024"
+license = "APACHE-2.0"
+authors = ["Chiro Hiro <chiro@orochi.network>"]
+description = "SP1 Playground"
+keywords = ["sequencer", "zkp", "stwo"]
+
+[workspace.dependencies]
+sp1-util = { path = "crates/sp1-util" }
+merkle = { path = "crates/merkle" }
+sp1-sdk = { version = "5.2.1" }
+sp1-zkvm = { version = "5.2.1" }
+sp1-build = { version = "5.2.1" }
+serde = { version = "1.0.219" }
+serde_json = { version = "1.0.140" }
+tokio = { version = "1.45.0", default-features = false }
+blake3 = { version = "1.5.0", default-features = false }
+
+[workspace.lints]
+rust.unreachable_pub = "warn"
+clippy.used_underscore_binding = "warn"
+clippy.pedantic = { level = "allow", priority = -1 }
+clippy.type_complexity = "allow"
+clippy.unnecessary_wraps = "warn"
+clippy.manual_let_else = "warn"
+clippy.dbg_macro = "warn"
